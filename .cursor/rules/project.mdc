@@ -64,14 +64,9 @@ streamlit-template/
 - lefthook runs automatic checks before commits
 - `.gitignore` should include appropriate exclusions:
   - `__pycache__/`
-  - `.pyright/`
   - `.ruff_cache/`
   - Environment-specific configuration files
   - Sensitive information
-
-## Security
-- Manage sensitive information (API keys, etc.) using environment variables
-- Add `.env` to `.gitignore` and provide `.env.example` as a template
 
 ## Deployment
 - Document deployment procedures in README
