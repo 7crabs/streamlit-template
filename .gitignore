@@ -12,7 +12,6 @@ wheels/
 
 # Cache directories
 .ruff_cache/
-.mypy_cache/
 .pytest_cache/
 
 # Streamlit specific

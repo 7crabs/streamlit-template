@@ -1,0 +1,74 @@
+# Streamlit Project Rules
+
+## Project Structure
+
+```
+streamlit-template/
+├── src/                    # Source code directory
+│   ├── pages/             # Streamlit multi-page app files
+│   ├── components/        # Reusable components
+│   └── utils/            # Utility functions
+├── tests/                 # Test files
+├── data/                  # Data files (if needed)
+├── .streamlit/           # Streamlit configuration
+│   └── config.toml      # Streamlit config file
+├── main.py               # Main application
+├── pyproject.toml        # Dependency management
+├── lefthook.yml         # Git hooks configuration
+├── .gitignore
+└── README.md
+```
+
+## Development Environment
+
+### Package Management
+- Use uv for package installation and management
+- Manage dependencies in `pyproject.toml`
+- Python version: 3.12 or higher
+
+### Code Quality Management
+- Ruff: Linter and formatter
+  - Format: `ruff format`
+  - Lint: `ruff check`
+- Pyright: Type checker
+  - Strict mode enabled
+  - Configuration in `pyrightconfig.json`
+- lefthook: Git hooks management
+  - Automatically run format, lint, and type check before commits
+
+## Coding Standards
+
+### General
+- Type hints are mandatory
+- Functions and classes must have appropriate docstrings
+- Maximum line length: 88 characters
+- Import order follows Ruff's automatic formatting
+
+### Streamlit-specific Rules
+- Page files should be placed in the `src/pages/` directory
+- Components should be implemented as reusable modules in `src/components/`
+- Configuration values should be managed in `.streamlit/config.toml`
+- Minimize the use of session state
+
+### Testing
+- Write tests for new features
+- Place test files in the `tests/` directory
+- Test file naming convention: `test_*.py`
+
+## Git Management
+- lefthook runs automatic checks before commits
+- `.gitignore` should include appropriate exclusions:
+  - `__pycache__/`
+  - `.pyright/`
+  - `.ruff_cache/`
+  - Environment-specific configuration files
+  - Sensitive information
+
+## Security
+- Manage sensitive information (API keys, etc.) using environment variables
+- Add `.env` to `.gitignore` and provide `.env.example` as a template
+
+## Deployment
+- Document deployment procedures in README
+- Provide a list of required environment variables
+- Include clear dependency installation instructions 
