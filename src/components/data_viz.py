@@ -49,7 +49,7 @@ class DataVizComponent:
 
     def calculate_statistics(self, data: pd.DataFrame) -> pd.DataFrame:
         """Calculate basic statistics by category"""
-        # 明示的にDataFrameを返すようにする
+        # Explicitly return as DataFrame
         result = pd.DataFrame(
             data.groupby("category")["value"]
             .agg(
@@ -74,7 +74,7 @@ class DataVizComponent:
         start_date = self.data["date"].dt.date.min()
         end_date = self.data["date"].dt.date.max()
 
-        # date_inputの戻り値を適切に処理
+        # Properly handle date_input return value
         date_input_result = st.sidebar.date_input(
             "Select Date Range",
             value=(start_date, end_date),
@@ -82,18 +82,18 @@ class DataVizComponent:
             max_value=end_date,
         )
 
-        # date_inputの戻り値を安全に処理
+        # Safely process date_input return value
         if isinstance(date_input_result, date):
-            # 単一の日付が選択された場合
+            # When a single date is selected
             start_date_selected = date_input_result
             end_date_selected = date_input_result
         else:
-            # 日付範囲が選択された場合
+            # When a date range is selected
             if len(date_input_result) >= 2:
                 start_date_selected = date_input_result[0]
                 end_date_selected = date_input_result[1]
             else:
-                # 予期しない場合のフォールバック
+                # Fallback for unexpected cases
                 start_date_selected = start_date
                 end_date_selected = end_date
 
@@ -111,7 +111,7 @@ class DataVizComponent:
             & (self.data["date"].dt.date <= end_date_selected)
             & (self.data["category"].isin(categories))
         )
-        # 明示的にDataFrameとして扱う
+        # Explicitly treat as DataFrame
         filtered_data = pd.DataFrame(self.data[mask].copy())
 
         # Display basic statistics
