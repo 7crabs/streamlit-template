@@ -35,8 +35,9 @@ streamlit-template/
 - Ruff: Linter and formatter
   - Format: `ruff format`
   - Lint: `ruff check`
-- mypy: Type checker
+- Pyright: Type checker
   - Strict mode enabled
+  - Configuration in `pyrightconfig.json`
 - lefthook: Git hooks management
   - Automatically run format, lint, and type check before commits
 
@@ -63,7 +64,7 @@ streamlit-template/
 - lefthook runs automatic checks before commits
 - `.gitignore` should include appropriate exclusions:
   - `__pycache__/`
-  - `.mypy_cache/`
+  - `.pyright/`
   - `.ruff_cache/`
   - Environment-specific configuration files
   - Sensitive information
