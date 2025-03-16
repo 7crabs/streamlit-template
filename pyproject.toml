@@ -1,14 +1,39 @@
 [project]
 name = "streamlit-template"
 version = "0.1.0"
-description = "Add your description here"
+description = "A template for Streamlit data analysis applications"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "numpy>=2.2.3",
+    "pandas>=2.2.3",
+    "plotly>=6.0.0",
     "streamlit>=1.43.2",
 ]
 
 [dependency-groups]
 dev = [
     "lefthook>=1.11.3",
+    "mypy>=1.15.0",
 ]
+
+[tool.ruff.lint]
+# Copied from https://docs.astral.sh/ruff/linter/#rule-selection
+select = [
+    # pycodestyle
+    "E",
+    # Pyflakes
+    "F",
+    # pyupgrade
+    "UP",
+    # flake8-bugbear
+    "B",
+    # flake8-simplify
+    "SIM",
+    # isort
+    "I",
+]
+
+# Disable rules that conflict with format
+# ref. https://docs.astral.sh/ruff/formatter/#conflicting-lint-rules
+ignore = ["E111", "E114", "E117"]
